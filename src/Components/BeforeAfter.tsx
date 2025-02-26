@@ -41,6 +41,7 @@ interface Props {
   beforeStyle?: InlineStyle
   afterStyle?: InlineStyle
   buttonStyle?: InlineStyle
+  initialPosition?: number
 }
 
 export function BeforeAfter({
@@ -58,10 +59,11 @@ export function BeforeAfter({
   style,
   beforeStyle,
   afterStyle,
-  buttonStyle
+  buttonStyle,
+  initialPosition,
 }: Props) {
   const [{ rangeValue }, dispatch] = useReducer(reducer, {
-    rangeValue: 50
+    rangeValue: initialPosition || 50
   })
 
   const handleChange = (event: ChangeEvent) => {
